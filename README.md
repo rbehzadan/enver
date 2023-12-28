@@ -33,6 +33,10 @@ can be dynamically set through evaluated shell commands.
    ```bash
    make build
    ```
+3. Install the binary:
+   ```bash
+   make install
+   ```
 
 ### Usage
 

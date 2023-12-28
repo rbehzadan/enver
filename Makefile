@@ -34,6 +34,12 @@ arm64:
 	mkdir -p $(BUILD_DIR)
 	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build $(LDFLAGS) -o $(BUILD_DIR)/$(PROJECT_NAME)_arm64 main.go
 
+install: build
+	@echo "Installing $(PROJECT_NAME)"
+	@mkdir -p $(DESTDIR)/usr/local/bin
+	@cp $(BUILD_DIR)/$(PROJECT_NAME) $(DESTDIR)/usr/local/bin/$(PROJECT_NAME)
+	@echo "$(PROJECT_NAME) installed successfully to $(DESTDIR)/usr/local/bin"
+
 tar: build
 	mkdir -p $(BUILD_DIR)/$(PACKAGE_NAME)
 	cd $(BUILD_DIR)/$(PACKAGE_NAME)
